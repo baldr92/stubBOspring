@@ -5,23 +5,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class JsonService {
         public String respJson(String inn) {
-            String response = "{\n" +
-                    "\t  \"data\": \n" +
-                    "\t  {\n" +
-                    "\t\t\"Requisites\": {\n" +
-                    "\t\t\t\"Inn\": \"" + inn +"\",\n" +
-                    "\t\t\t\"Kpp\": \"343501001\",\n" +
-                    "\t\t\t\"Ogrn\": \"1143435005922\"\n" +
-                    "\t\t},\n" +
-                    "\t\t\"Rating\": {\n" +
-                    "\t\t\t\"Type\": 3 \n" +
-                    "\t\t}\n" +
-                    "\t  },\n" +
-                    "\t  \"errors\": \n" +
-                    "       {\n" +
-                    "           \"message\": [\"Something went wrong. Fix it!\"]\n" +
-                    "       }\n" +
-                    "}";
+            String response = "[  \n" +
+                    "   {  \n" +
+                    "      \"inn\":\""+inn+"\",\n" +
+                    "      \"ogrn\":\"1087799008967\",\n" +
+                    "      \"shortName\":\"Фонд Константина Хабенского\",\n" +
+                    "      \"fullName\":\"Благотворительный Фонд Константина Хабенского\",\n" +
+                    "      \"kpp\":\"770901001\",\n" +
+                    "      \"version\":\"000000087E40000F-0000000000000000\",\n" +
+                    "      \"summary\":{  \n" +
+                    "         \"yellow\":1,\n" +
+                    "         \"green\":6\n" +
+                    "      }\n" +
+                    "   }\n" +
+                    "]";
         return response;
         }
 

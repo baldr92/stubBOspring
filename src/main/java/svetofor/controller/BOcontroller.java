@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import svetofor.service.JsonService;
 
+import java.util.ArrayList;
+
 @RestController
 public class BOcontroller {
     JsonService jsonService;
@@ -14,26 +16,18 @@ public class BOcontroller {
 
 
     //Endpoint for get query svetofor
-    @RequestMapping(value = "/office/api/v2/{InnOrOgrn}/rating",   produces = "application/json")
-    //@ResponseBody
-    public String respGetJson(@PathVariable (value="InnOrOgrn") String InnOrOgrn,
-                           @RequestParam (value = "ClientId") String clientId){
+    @RequestMapping(value = "/agent/briefSummary2",   produces = "application/json")
+    @ResponseBody
+    public String respGetJson(@RequestParam(value ="key") String key,
+                              @RequestParam(value ="ogrns", required = false) String ogrns,
+                              @RequestParam(value ="inns") String inns,
+                              @RequestParam(value ="clientId") String clientId,
+                              @RequestParam(value ="source") String source){
         JsonService service = new JsonService();
-        String response = service.respJson(InnOrOgrn);
+        ogrns = inns;
+        String response = service.respJson(inns);
         System.out.println(response);
         return response;
     }
-
-
-
-    //Endpoint for POST query
-    @RequestMapping(method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void respPostJson(){
-
-    }
-
-
+//?key=ea17f429189225647c13b874bb7a55d82a1301b0&ogrns=&inns={inns}&clientid=0&source=1
 }
-
-
